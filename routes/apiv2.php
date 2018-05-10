@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 
+// this apiv2.php doesn't require auth.
+// for testing purpose temporarily
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,10 +20,12 @@ use Illuminate\Http\Request;
 //  return 'test';
 //});
 
+
 Route::get('/', function() {
   return 'API Version 2';
 });
 
 Route::get('products/init', 'ProductController@init');
 Route::resource('products', 'ProductController');
-
+Route::resource('meeting_rooms', 'MeetingRoomController');
+Route::get('users/init', 'UserController@init');

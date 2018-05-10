@@ -74,7 +74,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapApiRoutes()
     {
         Route::prefix('api')
-             ->middleware('api')
+             ->middleware('api', 'cors')
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
     }
@@ -82,6 +82,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapApiV2Routes()
     {
         Route::middleware('web')->prefix('apiv2')
+            ->middleware('cors')
              //->middleware('api')
              ->namespace('App\Http\Controllers\ApiV2')
              ->group(base_path('routes/apiv2.php'));
